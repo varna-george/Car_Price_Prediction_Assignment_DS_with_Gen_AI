@@ -26,10 +26,15 @@ Key steps followed:
 4. One hot encoding was performed.
 5. 100 features were selected using SelectKBest
 6. Models implemented: Linear Regression, Decision Tree Regressor, Random Forest Regressor, Gradient Boosting Regressor, Support Vector Regressor.
+
 Insights:
+
 Tree-based ensemble models (Random Forest, Gradient Boosting) are more reliable for this dataset.
 Gradient Boosting achieved the lowest MAE (~1378) with an R² of about 0.76, followed closely by the Decision Tree and Random Forest.
 Linear Regression showed higher error and lower R² (~0.67), indicating that the relationship between features and price is likely nonlinear.
 SVR performed poorly on this dataset, with a near-zero R², and was not considered further.
-7. Hyperparameter tuning was done for Gradient Boosting Regressor
-Insights: After hyperparameter tuning using GridSearchCV (64 candidates, 5-fold CV), the best Gradient Boosting model was obtained with learning_rate = 0.1, n_estimators = 100, max_depth = 4, min_samples_split = 5, min_samples_leaf = 2, and subsample = 0.8. The tuned model achieved a cross-validated MSE of approximately 3.16 × 10⁶. However, on the test set, the tuned Gradient Boosting model obtained MAE = 1485.13, RMSE = 2149.05, and R² = 0.7245, which is slightly worse than the default Gradient Boosting configuration. This suggests that, for this particular train–test split, the untuned model provided marginally better test performance, even though the tuned model performed better during cross-validation.
+
+8. Hyperparameter tuning was done for Gradient Boosting Regressor
+
+Insights: 
+After hyperparameter tuning using GridSearchCV (64 candidates, 5-fold CV), the best Gradient Boosting model was obtained with learning_rate = 0.1, n_estimators = 100, max_depth = 4, min_samples_split = 5, min_samples_leaf = 2, and subsample = 0.8. The tuned model achieved a cross-validated MSE of approximately 3.16 × 10⁶. However, on the test set, the tuned Gradient Boosting model obtained MAE = 1485.13, RMSE = 2149.05, and R² = 0.7245, which is slightly worse than the default Gradient Boosting configuration. This suggests that, for this particular train–test split, the untuned model provided marginally better test performance, even though the tuned model performed better during cross-validation.
